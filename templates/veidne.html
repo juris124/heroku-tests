@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Zināšanu pārbaudes testi - Brīvie Suņi</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/stils.css') }}">
+</head>
+
+<body>
+	<div class="saturs">
+		{% block saturs %} {% endblock %}
+	</div>
+	<div class="jautajums">
+		<div id="jaut">Jautājums</div>
+	</div>
+	<div id="atbil" class="atbildes">
+		<div>
+			<a href="#" onclick="javascript:nakamais()" class="poga">
+				<div class="atbilde">1. atbilde</div>
+			</a>
+		</div>
+		<div>
+			<a href="#" onclick="javascript:nakamais()" class="poga">
+				<div class="atbilde">2. atbilde</div>
+			</a>
+		</div>
+		<div>
+			<a href="#" onclick="javascript:nakamais()" class="poga">
+				<div class="atbilde">3. atbilde</div>
+			</a>
+		</div>
+		<div>
+			<a href="#" onclick="javascript:nakamais()" class="poga">
+				<div class="atbilde">4. atbilde</div>
+			</a>
+		</div>
+	</div>
+	<div id="kaajene">
+		<hr width="40%" />
+		<p>&copy; Brīvie Suņi, 2019</p>
+	</div>
+</body>
+
+</html>
