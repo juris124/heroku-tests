@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Zināšanu pārbaudes testi - Brīvie Suņi</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/stils.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="saturs">
+      {% block saturs %} {% endblock %}
+    </div>
+    <div id="kaajene">
+      <hr width="40%" />
+      <img src="{{ url_for('static', filename='bildes/brivais_suns.png') }}" />
+      <p>&copy; Brīvie Suņi, 2019</p>
+    </div>
+  </body>
+</html>

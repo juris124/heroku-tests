@@ -43,6 +43,7 @@ def macibas():
 def parbaude():
     return render_template('parbaude.html')
 
+  
 @app.route('/login', methods=['GET','POST'])
 def login_post():
   if request.method == 'POST':
