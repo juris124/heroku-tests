@@ -2,16 +2,23 @@
 <div class="column is-4 is-offset-4">
     <h3 class="title">Pieteikties</h3>
     <div class="box">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <div class="notification is-danger">
+              {{ messages[0] }}
+          </div>
+      {% endif %}
+      {% endwith %}
         <form method="POST" action="/pieteikties">
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="user" name="user" placeholder="Lietotajvards" autofocus="">
+                    <input class="input is-large" type="user" name="lietotajs" placeholder="Lietotajvards" autofocus="">
                 </div>
             </div>
 
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="parole" name="parole" placeholder="Parole">
+                    <input class="input is-large" type="password" name="parole" placeholder="Parole">
                 </div>
             </div>
             <div class="field">
