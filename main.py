@@ -2,7 +2,7 @@ from flask import Flask, Response, redirect, url_for, render_template, request, 
 from flask_login import LoginManager
 from flask_login import UserMixin, login_user, login_required, current_user, logout_user
 
-app = Flask('app')
+app = Flask(__name__)
 app.config.update(
     DEBUG = True,
     SECRET_KEY = 'bzzbzzbzz'
