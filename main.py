@@ -21,7 +21,9 @@ class User(UserMixin):
 
 users = { "test": User("test", "qwerty", "Galvenais testetajs"),
         "gundega": User("gundega", "asdf", "Princese Gundega"),
-         "maiga": User("maiga", "parole", "Maiga no Ķekavas")}
+         "maiga": User("maiga", "parole", "Maiga no Ķekavas"),
+         "juris": User("juris", "123", "Juris")
+         }
 
 @login_manager.user_loader
 def load_user(username):
