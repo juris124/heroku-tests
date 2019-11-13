@@ -72,6 +72,10 @@ def login_post():
   else:
     return render_template('autorizacija.html')
 
+@app.route('/upload')
+@login_required
+def uploads():
+    return render_template('upload.html', vards=current_user.vards)
 
 @app.route('/profile')
 @login_required
