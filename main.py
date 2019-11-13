@@ -2,10 +2,12 @@ from flask import Flask, Response, redirect, url_for, render_template, request, 
 from flask_login import LoginManager
 from flask_login import UserMixin, login_user, login_required, current_user, logout_user
 
+import os
+
 app = Flask(__name__)
 app.config.update(
     DEBUG = True,
-    SECRET_KEY = 'bzzbzzbzz'
+    SECRET_KEY = os.environ['SECRET_KEY']
 )
 login_manager = LoginManager()
 login_manager.init_app(app)
