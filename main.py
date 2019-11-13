@@ -31,7 +31,7 @@ def load_user(username):
 
 @app.route('/')
 def brivie_suni():
-    return 'Brīvie Suņi'
+    return render_template('index.html')
 
 
 @app.route('/macibas')
