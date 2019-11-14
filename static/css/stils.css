@@ -123,3 +123,7 @@ a {
   width: 40%;
   text-align: center;
 }
+.ikona {
+  display: inline-block;
+  width: 64px;
+}
