@@ -126,4 +126,5 @@ a {
 .ikona {
   display: inline-block;
   width: 64px;
+  filter: invert(0.5) sepia(1) saturate(100) hue-rotate(50deg);
 }
