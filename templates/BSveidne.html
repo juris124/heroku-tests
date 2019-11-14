@@ -7,25 +7,32 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/stils.css') }}"
     />
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/scripts.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/papaparse.min.js') }}"
+    ></script>
   </head>
 
   <body>
     <div id="navbarMenuHeroA" class="navbar-menu">
-        <div class="navbar-end">
-            
-            <a href="/" class="navbar-item">
-              Sākums
-          </a>
-            <a href="/profile" class="navbar-item">
-                Profils
-            </a>
-            <a href="/login" class="navbar-item">
-                Pieteikties
-            </a>
-            <a href="/logout" class="navbar-item">
-                Iziet
-            </a>
-        </div>
+      <div class="navbar-end">
+        <a href="/" class="navbar-item">
+          Sākums
+        </a>
+        <a href="/profile" class="navbar-item">
+          Profils
+        </a>
+        <a href="/login" class="navbar-item">
+          Pieteikties
+        </a>
+        <a href="/logout" class="navbar-item">
+          Iziet
+        </a>
+      </div>
     </div>
     <div class="saturs">
       {% block saturs %} {% endblock %}
