@@ -56,7 +56,7 @@ function beidzSpeli() {
 
 function atteloHTML() {
   preloader = document.querySelector(".preloader");
-  fadeEffect(1, 500, 1000);
+  // fadeEffect(1, 500, 1000);
   raditDIV("atbil");
   radit("jaut");
   testaJautajumiNoCSV(function(results) {
