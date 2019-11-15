@@ -6,8 +6,8 @@ import os
 
 app = Flask(__name__)
 app.config.update(
-    DEBUG=True,
-    SECRET_KEY=os.environ['SECRET_KEY']
+    DEBUG = True,
+    SECRET_KEY = os.environ['SECRET_KEY']
 )
 login_manager = LoginManager()
 login_manager.init_app(app)
