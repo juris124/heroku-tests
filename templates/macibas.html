@@ -1,4 +1,7 @@
-{% extends "veidne.html" %} {% block galva %}
+{% extends "veidne.html" %} {% block galva %}   
+ <div class="preloader behind">
+  <img src="{{ url_for('static', filename='bildes/pulsing-cube.svg') }}" />
+</div>
 <div id="galva">
   <h1>Zināšanu pašpārbaudes tests</h1>
   <hr width="40%" />
