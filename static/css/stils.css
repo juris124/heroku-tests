@@ -128,3 +128,56 @@ a {
   width: 64px;
   filter: invert(0.5) sepia(1) saturate(100) hue-rotate(50deg);
 }
+.kaste{
+  background-color: #dff70e;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: auto;  
+  box-sizing: border-box;
+}
+.kaste:before {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.kaste:after {
+  clear: both;
+}
+.row{
+  margin-bottom: 20px;
+  margin-left: 0;
+}
+.row:before{
+  display: table;
+  line-height: 0;
+  content: "";
+}
+row.after{
+  clear: both;
+}
+.span2{
+  float: none;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  box-sizing: border-box;
+  min-height: 1px;
+}
+.kreisakaste{
+  border: none;
+  text-align: center;
+  background: #9dff00;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+}
+.labakaste{
+  background: #ffbb00;
+  color: #fff;
+  border: none;
+  text-align: center;
+  border-radius: 0;
+  box-shadow: none;
+}

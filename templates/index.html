@@ -5,13 +5,29 @@
     <center>Mācību testi</center>
 </h1>
 <p>Ir iespēja izvēlēties: </p>
-<ul>
-    <li><a href="/macibas">
-        <img class="ikona" src="{{ url_for('static', filename='bildes/book-h.svg') }}">
-        Mācību testu lapa</a> <b>šeit ir iespēja mācīties testu par izvēlēto tēmu un nostiprināt savas zināšanas</b> </li>
-    
-    <li><a href="/parbaude">
-        <img class="ikona" src="{{ url_for('static', filename='bildes/graduate.svg') }}">
-        Pārbaudes testu lapa</a> <b>Šeit ir iespēja pārbaudīt savas zināšanas konkrētajā tēmā un iegūt punktus</b></li>
-</ul>
+<div class="kaste">
+    <div class="kaste:before">
+        <div class="row">
+            <div class="row:before">
+        <div class="span2">
+            <div class="kreisakaste">
+         <h3><a href="/macibas">    
+    <img class="ikona" src="{{ url_for('static', filename='bildes/book-h.svg') }}">
+    Mācību testu lapa</a></h3>
+<p><b>šeit ir iespēja mācīties testu par izvēlēto tēmu un nostiprināt savas zināšanas</b> </p>
+</div>      
+</div>
+     <div class="span2">  
+            <div class="labakaste">
+    <h3><a href="/parbaude">    
+    <img class="ikona" src="{{ url_for('static', filename='bildes/graduate.svg') }}">
+    Pārbaudes testu lapa</a></h3>
+<p><b>šeit ir iespēja mācīties testu par izvēlēto tēmu un nostiprināt savas zināšanas</b> </p>
+</div>
+</div>
+<div class="row:after"></div>
+</div>
+<div class="kaste:after"></div>
+</div>
+</div>
 {% endblock %}
