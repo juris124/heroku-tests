@@ -95,7 +95,7 @@ if form.validate_on_submit():
         f = form.photo.data
         filename = secure_filename(f.filename)
         f.save(os.path.join(
-            app.instance_path, 'photos', filename
+            app.instance_path, 'upload', filename
         ))
         return redirect(url_for('index'))
 
