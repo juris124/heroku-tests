@@ -8,14 +8,15 @@ from werkzeug.utils import secure_filename
 
 import os
 
+
 class PhotoForm(FlaskForm):
     photo = FileField(validators=[FileRequired()])
 
 
 app = Flask(__name__)
 app.config.update(
-    DEBUG = True,
-    SECRET_KEY = os.environ['SECRET_KEY']
+    DEBUG=True,
+    SECRET_KEY=os.environ['SECRET_KEY']
 )
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -90,8 +91,8 @@ def login_post():
 @app.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload():
-# papildinaats prieksh failu augshupielaades
-if form.validate_on_submit():
+    # papildinaats prieksh failu augshupielaades
+    if form.validate_on_submit():
         f = form.photo.data
         filename = secure_filename(f.filename)
         f.save(os.path.join(
