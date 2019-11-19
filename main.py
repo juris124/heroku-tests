@@ -2,15 +2,15 @@ from flask import Flask, Response, redirect, url_for, render_template, request, 
 from flask_login import LoginManager
 from flask_login import UserMixin, login_user, login_required, current_user, logout_user
 
-from flask_wtf import FlaskForm
-from flask_wtf.file import FileField, FileRequired
-from werkzeug.utils import secure_filename
+#from flask_wtf import FlaskForm
+#from flask_wtf.file import FileField, FileRequired
+#from werkzeug.utils import secure_filename
 
 import os
 
 
-class PhotoForm(FlaskForm):
-    photo = FileField(validators=[FileRequired()])
+#class PhotoForm(FlaskForm):
+#    photo = FileField(validators=[FileRequired()])
 
 
 app = Flask(__name__)
@@ -92,13 +92,13 @@ def login_post():
 @login_required
 def upload():
     # papildinaats prieksh failu augshupielaades
-    if form.validate_on_submit():
-        f = form.photo.data
-        filename = secure_filename(f.filename)
-        f.save(os.path.join(
-            app.instance_path, 'upload', filename
-        ))
-        return redirect(url_for('index'))
+    #if form.validate_on_submit():
+    #    f = form.photo.data
+    #    filename = secure_filename(f.filename)
+    #    f.save(os.path.join(
+    #        app.instance_path, 'upload', filename
+    #    ))
+    #    return redirect(url_for('index'))
 
     return render_template('upload.html', vards=current_user.vards)
 
