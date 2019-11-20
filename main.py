@@ -2,16 +2,16 @@ from flask import Flask, Response, redirect, url_for, render_template, request, 
 from flask_login import LoginManager
 from flask_login import UserMixin, login_user, login_required, current_user, logout_user
 
-#from flask_wtf import FlaskForm
-#from flask_wtf.file import FileField, FileRequired
-#from werkzeug.utils import secure_filename
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileRequired
+from werkzeug.utils import secure_filename
 
 import os
 
+IELADES_VIETA = "uploads"
 
-
-#class PhotoForm(FlaskForm):
-#    photo = FileField(validators=[FileRequired()])
+class DatnesForma(FlaskForm):
+    datne = FileField(validators=[FileRequired()])
 
 
 app = Flask(__name__)
@@ -92,22 +92,23 @@ def login_post():
 @app.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload():    
-    directory = "./uploads"
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    form = DatnesForma()
+    if not os.path.exists(IELADES_VIETA):
+        os.makedirs(IELADES_VIETA)
+    
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            f = form.datne.data
+            failaNosaukums = secure_filename(f.failaNosaukums)            
+            if not failaNosaukums.endswich(".csv"):
+                flash('Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
+                return redirect(url_for('upload'))
+            f.save(os.path.join(IELADES_VIETA, failaNosaukums))
+            flash('Testa datne veiksmīgi augšupielādēta un saglabāta mapē uploads')
+        else:
+            flash('Notikusi pašreiz nenosakāma kļūda! Testa datne nav veiksmīgi augšupielādēta!')
 
-    #f = file(filename)
-
-    # papildinaats prieksh failu augshupielaades
-    #if form.validate_on_submit():
-    #    f = form.photo.data
-    #    filename = secure_filename(f.filename)
-    #    f.save(os.path.join(
-    #        app.instance_path, 'upload', filename
-    #    ))
-    #    return redirect(url_for('index'))
-
-    return render_template('upload.html', vards=current_user.vards)
+    return render_template('upload.html', vards=current_user.vards, form=form)
 
 
 @app.route('/profile')
