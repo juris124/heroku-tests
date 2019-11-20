@@ -7,6 +7,7 @@ from flask_wtf.file import FileField, FileRequired
 from werkzeug.utils import secure_filename
 
 import os
+import csv
 
 IELADES_VIETA = "uploads"
 
@@ -41,6 +42,15 @@ users = {"test": User("test", "qwerty", "Galvenais testetajs"),
          "indra": User("in24", "pk30", "Indra")
          }
 
+def datnesStruktuurasParbaude(fails):
+    with open(os.path.join(IELADES_VIETA, fails), newline='', encoding='utf-8') as csvfile:
+        lauki = ['jautajums', 'atbilde1', 'atbilde2', 'atbilde3', 'atbilde4']
+        lasitajs = csv.DictReader(csvfile, fieldnames=lauki, delimiter=';')
+        pirmaRinda = next(lasitajs)
+        print(pirmaRinda)
+        for row in lasitajs:
+            print(row['jautajums'])
+    return True
 
 @login_manager.user_loader
 def load_user(username):
@@ -104,7 +114,11 @@ def upload():
                 flash('Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
                 return redirect(url_for('upload'))
             f.save(os.path.join(IELADES_VIETA, failaNosaukums))
-            flash('Testa datne veiksmīgi augšupielādēta un saglabāta mapē uploads')
+            # faila paarbaude 
+            if not datnesStruktuurasParbaude(failaNosaukums):
+                flash('Datnes struktūra nav pareiza!')
+            else:
+                flash('Testa datne veiksmīgi augšupielādēta un saglabāta mapē uploads')
         else:
             flash('Notikusi pašreiz nenosakāma kļūda! Testa datne nav veiksmīgi augšupielādēta!')
 
@@ -123,6 +137,11 @@ def logout():
     logout_user()
     return render_template('autorizacija.html')
 
+@app.route('/parbaudei')
+@login_required
+def parbaudei():
+    failuSaraksts = os.listdir(IELADES_VIETA)
+    return " ".join(failuSaraksts)
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
