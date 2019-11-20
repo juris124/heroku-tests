@@ -99,8 +99,8 @@ def upload():
     if request.method == 'POST':
         if form.validate_on_submit():
             f = form.datne.data
-            failaNosaukums = secure_filename(f.failaNosaukums)            
-            if not failaNosaukums.endswich(".csv"):
+            failaNosaukums = secure_filename(f.filename)            
+            if not failaNosaukums.endswith(".csv"):
                 flash('Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
                 return redirect(url_for('upload'))
             f.save(os.path.join(IELADES_VIETA, failaNosaukums))
