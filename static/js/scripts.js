@@ -23,7 +23,7 @@ function pienemAtbildi() {
 
 function rezultataUzskaite() {
   //  console.log(document.activeElement.value + " - " + pareiza[jautajums]);
-  if (document.activeElement.textContent.trim() == pareiza[jautajums]) {
+  if (document.activeElement.textContent.trim() == pareiza[jautajums].trim()) {
     rezultats++;
   }
 }
