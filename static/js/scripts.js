@@ -21,7 +21,8 @@ function atverotTestu() {
 function pienemAtbildi() {
   rezultataUzskaite(jautajums);
 }
-
+// parbaudes testa gadiijumaa jauna ruute un funkcija pytonaa, lai paarbaude ir servera pusee, tue vajadzeeetu suutiit tikai piem true vai false.
+// to rezutatu glabat juzers pusee, tam izveidot jaunu propertiju kuraa ir rezultaats 
 function rezultataUzskaite() {
   //  console.log(document.activeElement.value + " - " + pareiza[jautajums]);
   if (document.activeElement.textContent.trim() == pareiza[jautajums].trim()) {
