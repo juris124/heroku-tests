@@ -9,6 +9,7 @@ from flask_login import UserMixin, login_user, login_required, current_user, log
 import os
 
 
+
 #class PhotoForm(FlaskForm):
 #    photo = FileField(validators=[FileRequired()])
 
@@ -90,7 +91,13 @@ def login_post():
 
 @app.route('/upload', methods=['GET', 'POST'])
 @login_required
-def upload():
+def upload():    
+    directory = "./uploads"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    #f = file(filename)
+
     # papildinaats prieksh failu augshupielaades
     #if form.validate_on_submit():
     #    f = form.photo.data

@@ -4,7 +4,8 @@ var testuDati =
   '{"nosaukums":"1. tests par HTML","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/html1.csv" },' +
   '{"nosaukums":"2. tests par HTML","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/html2.csv" },' +
   '{"nosaukums":"Tests par datu drošību","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/datudrosiba1.csv" },' +
-  '{"nosaukums":"Ģeogrāfijas zināšanu tests","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/geografija1.csv" }]}';
+  '{"nosaukums":"Ģeogrāfijas zināšanu tests","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/geografija1.csv" },' +
+  '{"nosaukums":"Tests par mērvienībām","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/mervienibas1.csv" }]}';
 var testaJautajumi;
 var preloader;
 var jautajums = 0;
