@@ -39,7 +39,7 @@ users = {"test": User("test", "qwerty", "Galvenais testetajs"),
          "gundega": User("gundega", "asdf", "Princese Gundega"),
          "maiga": User("maiga", "parole", "Maiga no Ķekavas"),
          "juris": User("juris", "123", "Juris"),
-         "indra": User("in24", "pk30", "Indra")
+         "indra": User("indra", "pk30", "Indra")
          }
 
 def datnesStruktuurasParbaude(fails):
