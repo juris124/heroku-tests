@@ -11,6 +11,7 @@ import csv
 
 IELADES_VIETA = "uploads"
 
+
 class DatnesForma(FlaskForm):
     datne = FileField(validators=[FileRequired()])
 
@@ -39,8 +40,9 @@ users = {"test": User("test", "qwerty", "Galvenais testetajs"),
          "gundega": User("gundega", "asdf", "Princese Gundega"),
          "maiga": User("maiga", "parole", "Maiga no Ķekavas"),
          "juris": User("juris", "123", "Juris"),
-         "indra": User("in24", "pk30", "Indra")
+         "indra": User("indra", "pk30", "Indra")
          }
+
 
 def datnesStruktuurasParbaude(fails):
     with open(os.path.join(IELADES_VIETA, fails), newline='', encoding='utf-8') as csvfile:
@@ -52,6 +54,7 @@ def datnesStruktuurasParbaude(fails):
             print(row['jautajums'])
     return True
 
+
 @login_manager.user_loader
 def load_user(username):
     user = users[username]
@@ -61,6 +64,11 @@ def load_user(username):
 @app.route('/')
 def brivie_suni():
     return render_template('index.html')
+
+
+@app.route('/par')
+def par():
+    return render_template('BrivieSuni.html')
 
 
 @app.route('/macibas')
@@ -101,26 +109,28 @@ def login_post():
 
 @app.route('/upload', methods=['GET', 'POST'])
 @login_required
-def upload():    
+def upload():
     form = DatnesForma()
     if not os.path.exists(IELADES_VIETA):
         os.makedirs(IELADES_VIETA)
-    
+
     if request.method == 'POST':
         if form.validate_on_submit():
             f = form.datne.data
-            failaNosaukums = secure_filename(f.filename)            
+            failaNosaukums = secure_filename(f.filename)
             if not failaNosaukums.endswith(".csv"):
-                flash('Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
+                flash(
+                    'Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
                 return redirect(url_for('upload'))
             f.save(os.path.join(IELADES_VIETA, failaNosaukums))
-            # faila paarbaude 
+            # faila paarbaude
             if not datnesStruktuurasParbaude(failaNosaukums):
                 flash('Datnes struktūra nav pareiza!')
             else:
                 flash('Testa datne veiksmīgi augšupielādēta un saglabāta mapē uploads')
         else:
-            flash('Notikusi pašreiz nenosakāma kļūda! Testa datne nav veiksmīgi augšupielādēta!')
+            flash(
+                'Notikusi pašreiz nenosakāma kļūda! Testa datne nav veiksmīgi augšupielādēta!')
 
     return render_template('upload.html', vards=current_user.vards, form=form)
 
@@ -137,11 +147,13 @@ def logout():
     logout_user()
     return render_template('autorizacija.html')
 
+
 @app.route('/parbaudei')
 @login_required
 def parbaudei():
     failuSaraksts = os.listdir(IELADES_VIETA)
     return " ".join(failuSaraksts)
+
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
