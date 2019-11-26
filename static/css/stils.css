@@ -147,6 +147,8 @@ a {
   border-radius: 0;
   box-shadow: none;
   margin: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .kkaste a{
   color: #523A34
