@@ -46,13 +46,16 @@
         </table>
       </div>
     </div>
+    <div class="preloader behind">
+      <img src="{{ url_for('static', filename='bildes/pulsing-cube.svg') }}" />
+    </div>
     <div class="saturs">
       {% block saturs %} {% endblock %}
     </div>
     <div id="kaajene">
       <hr width="40%" />
       <img src="{{ url_for('static', filename='bildes/brivais_suns.png') }}" />
-      <p>&copy; Brīvie Suņi, 2019</p>
+      <p>&copy; <a href="/par">Brīvie Suņi</a>, 2019</p>
     </div>
   </body>
 </html>

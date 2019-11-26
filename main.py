@@ -2,15 +2,18 @@ from flask import Flask, Response, redirect, url_for, render_template, request, 
 from flask_login import LoginManager
 from flask_login import UserMixin, login_user, login_required, current_user, logout_user
 
-#from flask_wtf import FlaskForm
-#from flask_wtf.file import FileField, FileRequired
-#from werkzeug.utils import secure_filename
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileRequired
+from werkzeug.utils import secure_filename
 
 import os
+import csv
+
+IELADES_VIETA = "uploads"
 
 
-#class PhotoForm(FlaskForm):
-#    photo = FileField(validators=[FileRequired()])
+class DatnesForma(FlaskForm):
+    datne = FileField(validators=[FileRequired()])
 
 
 app = Flask(__name__)
@@ -37,8 +40,19 @@ users = {"test": User("test", "qwerty", "Galvenais testetajs"),
          "gundega": User("gundega", "asdf", "Princese Gundega"),
          "maiga": User("maiga", "parole", "Maiga no Ķekavas"),
          "juris": User("juris", "123", "Juris"),
-         "indra": User("in24", "pk30", "Indra")
+         "indra": User("indra", "pk30", "Indra")
          }
+
+
+def datnesStruktuurasParbaude(fails):
+    with open(os.path.join(IELADES_VIETA, fails), newline='', encoding='utf-8') as csvfile:
+        lauki = ['jautajums', 'atbilde1', 'atbilde2', 'atbilde3', 'atbilde4']
+        lasitajs = csv.DictReader(csvfile, fieldnames=lauki, delimiter=';')
+        pirmaRinda = next(lasitajs)
+        print(pirmaRinda)
+        for row in lasitajs:
+            print(row['jautajums'])
+    return True
 
 
 @login_manager.user_loader
@@ -50,6 +64,11 @@ def load_user(username):
 @app.route('/')
 def brivie_suni():
     return render_template('index.html')
+
+
+@app.route('/par')
+def par():
+    return render_template('BrivieSuni.html')
 
 
 @app.route('/macibas')
@@ -91,16 +110,29 @@ def login_post():
 @app.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload():
-    # papildinaats prieksh failu augshupielaades
-    #if form.validate_on_submit():
-    #    f = form.photo.data
-    #    filename = secure_filename(f.filename)
-    #    f.save(os.path.join(
-    #        app.instance_path, 'upload', filename
-    #    ))
-    #    return redirect(url_for('index'))
+    form = DatnesForma()
+    if not os.path.exists(IELADES_VIETA):
+        os.makedirs(IELADES_VIETA)
 
-    return render_template('upload.html', vards=current_user.vards)
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            f = form.datne.data
+            failaNosaukums = secure_filename(f.filename)
+            if not failaNosaukums.endswith(".csv"):
+                flash(
+                    'Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
+                return redirect(url_for('upload'))
+            f.save(os.path.join(IELADES_VIETA, failaNosaukums))
+            # faila paarbaude
+            if not datnesStruktuurasParbaude(failaNosaukums):
+                flash('Datnes struktūra nav pareiza!')
+            else:
+                flash('Testa datne veiksmīgi augšupielādēta un saglabāta mapē uploads')
+        else:
+            flash(
+                'Notikusi pašreiz nenosakāma kļūda! Testa datne nav veiksmīgi augšupielādēta!')
+
+    return render_template('upload.html', vards=current_user.vards, form=form)
 
 
 @app.route('/profile')
@@ -114,6 +146,13 @@ def profile():
 def logout():
     logout_user()
     return render_template('autorizacija.html')
+
+
+@app.route('/parbaudei')
+@login_required
+def parbaudei():
+    failuSaraksts = os.listdir(IELADES_VIETA)
+    return " ".join(failuSaraksts)
 
 
 if __name__ == '__main__':
