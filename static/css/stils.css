@@ -129,20 +129,22 @@ a {
   filter: invert(0.5) sepia(1) saturate(100) hue-rotate(50deg);
 }
 .kaste{
-  background-color: #dff70e;
-  padding-right: 15px;
-  padding-left: 15px;
+   background-color: #dff70e;
+  padding-right: 40px;
+  padding-left: 40px;
   margin-right: auto;
   margin-left: auto;
   width: auto;  
   box-sizing: border-box;
+  display: flex;
 
 }
 .kkaste{
   border: none;
   text-align: center;
-  background: #ffbb00;
+  background: #00ff00;
   color: #fff;
   border-radius: 0;
   box-shadow: none;
+  margin: 20px;
 }
