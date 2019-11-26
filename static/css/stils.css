@@ -129,9 +129,9 @@ a {
   filter: invert(0.5) sepia(1) saturate(100) hue-rotate(50deg);
 }
 .kaste{
-   background-color: #B87D4B;
-  padding-right: 30px;
-  padding-left: 30px;
+  background-color: #B87D4B;
+  padding-right: 20px;
+  padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
   width: auto;  
