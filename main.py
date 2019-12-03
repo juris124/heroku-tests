@@ -153,7 +153,7 @@ def logout():
 @app.route('/parbaudei')
 @login_required
 def parbaudei():
-    failuSaraksts = os.listdir(IELADES_VIETA)
+    failuSaraksts = os.listdir(DATNU_VIETA)
     return " ".join(failuSaraksts)
 
 
