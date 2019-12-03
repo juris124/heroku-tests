@@ -8,9 +8,15 @@ from werkzeug.utils import secure_filename
 
 import os
 import csv
+import utils
+import shutil
+import datetime
+
+dat = datetime.datetime.now()
+datums = dat.strftime("%Y%m%d")
 
 IELADES_VIETA = "uploads"
-
+DATNU_VIETA = "testi"
 
 class DatnesForma(FlaskForm):
     datne = FileField(validators=[FileRequired()])
@@ -42,17 +48,6 @@ users = {"test": User("test", "qwerty", "Galvenais testetajs"),
          "juris": User("juris", "123", "Juris"),
          "indra": User("indra", "pk30", "Indra")
          }
-
-
-def datnesStruktuurasParbaude(fails):
-    with open(os.path.join(IELADES_VIETA, fails), newline='', encoding='utf-8') as csvfile:
-        lauki = ['jautajums', 'atbilde1', 'atbilde2', 'atbilde3', 'atbilde4']
-        lasitajs = csv.DictReader(csvfile, fieldnames=lauki, delimiter=';')
-        pirmaRinda = next(lasitajs)
-        print(pirmaRinda)
-        for row in lasitajs:
-            print(row['jautajums'])
-    return True
 
 
 @login_manager.user_loader
@@ -106,28 +101,35 @@ def login_post():
     else:
         return render_template('autorizacija.html')
 
-
 @app.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload():
     form = DatnesForma()
     if not os.path.exists(IELADES_VIETA):
         os.makedirs(IELADES_VIETA)
+    if not os.path.exists(DATNU_VIETA):
+        os.makedirs(DATNU_VIETA)
 
     if request.method == 'POST':
         if form.validate_on_submit():
             f = form.datne.data
             failaNosaukums = secure_filename(f.filename)
+            
             if not failaNosaukums.endswith(".csv"):
-                flash(
-                    'Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
+                flash('Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
                 return redirect(url_for('upload'))
+
             f.save(os.path.join(IELADES_VIETA, failaNosaukums))
             # faila paarbaude
-            if not datnesStruktuurasParbaude(failaNosaukums):
-                flash('Datnes struktūra nav pareiza!')
+
+            (result, message) = utils.datnesStruktuurasParbaude(IELADES_VIETA,failaNosaukums)
+            if result:                
+                flash(message)
+                #os.rename(os.path.join(IELADES_VIETA, failaNosaukums), os.path.join(DATNU_VIETA, failaNosaukums))                
+                shutil.move(os.path.join(IELADES_VIETA, failaNosaukums), os.path.join(DATNU_VIETA, str(datums) + '_' + failaNosaukums))       
             else:
-                flash('Testa datne veiksmīgi augšupielādēta un saglabāta mapē uploads')
+                flash(message)
+                os.remove(os.path.join(IELADES_VIETA, failaNosaukums))        
         else:
             flash(
                 'Notikusi pašreiz nenosakāma kļūda! Testa datne nav veiksmīgi augšupielādēta!')
