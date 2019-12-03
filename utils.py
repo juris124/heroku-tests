@@ -28,3 +28,13 @@ def datnesStruktuurasParbaude(ielades_vieta,fails):
             rindas_skaititajs+=1
             #pass
     return (True, "Viss ir OK, testa datne pārbaudīta un augšupielādēta testu mapē.")
+
+def testuSaraksts(ielades_vieta):
+    # te buus jaaveido list of list, lai padotu arii faila atrashanaas vietu prieksh dropdowna
+    failuSaraksts = os.listdir(ielades_vieta)
+    testuListe = []
+    for datne in failuSaraksts:
+        with open(os.path.join(ielades_vieta, datne), "r", encoding='utf-8') as f: 
+            dati = f.readlines()
+            testuListe.append(dati[1])
+    return testuListe 

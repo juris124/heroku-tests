@@ -153,8 +153,9 @@ def logout():
 @app.route('/parbaudei')
 @login_required
 def parbaudei():
-    failuSaraksts = os.listdir(DATNU_VIETA)
-    return " ".join(failuSaraksts)
+    testuNosaukumuListe = utils.testuSaraksts(DATNU_VIETA)
+    #faili = " ".join(failuSaraksts)
+    return render_template('parbaude.html', faili = testuNosaukumuListe)
 
 
 if __name__ == '__main__':
