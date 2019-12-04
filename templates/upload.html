@@ -2,11 +2,21 @@
 
 {% block saturs %}
 
-<h1 class="title">Sveiki {{ vards }}!</h1>
-<h2>Testu augšupielādes rīks</h2>
+<h1 class="title">Sveiki, {{ vards }}!</h1>
+<h2>Testu datņu augšupielādes rīks</h2>
 
-<!--
-  forma .... kurā ir failu augšupielādes iespēja
--->
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <div class="notification is-danger">
+              {{ messages[0] }}
+          </div>
+      {% endif %}
+      {% endwith %}
+
+<form enctype = "multipart/form-data" action = "/upload" method = "post">
+    {{ form.csrf_token }}
+    <p>Atlasiet testa datni CSV formatā (attdalītājs ';'): <input type = "file" name = "datne" /></p>
+    <p><input type = "submit" value = "Datnes augšupielāde" /></p>
+</form>
 
 {% endblock %}

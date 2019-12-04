@@ -2,12 +2,30 @@ from flask import Flask, Response, redirect, url_for, render_template, request, 
 from flask_login import LoginManager
 from flask_login import UserMixin, login_user, login_required, current_user, logout_user
 
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileRequired
+from werkzeug.utils import secure_filename
+
 import os
+import csv
+import utils
+import shutil
+import datetime
+
+dat = datetime.datetime.now()
+datums = dat.strftime("%Y%m%d")
+
+IELADES_VIETA = "uploads"
+DATNU_VIETA = "testi"
+
+class DatnesForma(FlaskForm):
+    datne = FileField(validators=[FileRequired()])
+
 
 app = Flask(__name__)
 app.config.update(
-    DEBUG = True,
-    SECRET_KEY = os.environ['SECRET_KEY']
+    DEBUG=True,
+    SECRET_KEY=os.environ['SECRET_KEY']
 )
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -28,7 +46,7 @@ users = {"test": User("test", "qwerty", "Galvenais testetajs"),
          "gundega": User("gundega", "asdf", "Princese Gundega"),
          "maiga": User("maiga", "parole", "Maiga no Ķekavas"),
          "juris": User("juris", "123", "Juris"),
-         "indra": User("in24", "pk30", "Indra")
+         "indra": User("indra", "pk30", "Indra")
          }
 
 
@@ -41,6 +59,11 @@ def load_user(username):
 @app.route('/')
 def brivie_suni():
     return render_template('index.html')
+
+
+@app.route('/par')
+def par():
+    return render_template('BrivieSuni.html')
 
 
 @app.route('/macibas')
@@ -78,11 +101,40 @@ def login_post():
     else:
         return render_template('autorizacija.html')
 
-
-@app.route('/upload')
+@app.route('/upload', methods=['GET', 'POST'])
 @login_required
-def uploads():
-    return render_template('upload.html', vards=current_user.vards)
+def upload():
+    form = DatnesForma()
+    if not os.path.exists(IELADES_VIETA):
+        os.makedirs(IELADES_VIETA)
+    if not os.path.exists(DATNU_VIETA):
+        os.makedirs(DATNU_VIETA)
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            f = form.datne.data
+            failaNosaukums = secure_filename(f.filename)
+            
+            if not failaNosaukums.endswith(".csv"):
+                flash('Nepareizs datnes formāts! Sistēma atbalsta tikai csv datņu formātus!')
+                return redirect(url_for('upload'))
+
+            f.save(os.path.join(IELADES_VIETA, failaNosaukums))
+            # faila paarbaude
+
+            (result, message) = utils.datnesStruktuurasParbaude(IELADES_VIETA,failaNosaukums)
+            if result:                
+                flash(message)
+                #os.rename(os.path.join(IELADES_VIETA, failaNosaukums), os.path.join(DATNU_VIETA, failaNosaukums))                
+                shutil.move(os.path.join(IELADES_VIETA, failaNosaukums), os.path.join(DATNU_VIETA, str(datums) + '_' + failaNosaukums))       
+            else:
+                flash(message)
+                os.remove(os.path.join(IELADES_VIETA, failaNosaukums))        
+        else:
+            flash(
+                'Notikusi pašreiz nenosakāma kļūda! Testa datne nav veiksmīgi augšupielādēta!')
+
+    return render_template('upload.html', vards=current_user.vards, form=form)
 
 
 @app.route('/profile')
@@ -96,6 +148,14 @@ def profile():
 def logout():
     logout_user()
     return render_template('autorizacija.html')
+
+
+@app.route('/parbaudei')
+@login_required
+def parbaudei():
+    testuNosaukumuListe = utils.testuSaraksts(DATNU_VIETA)
+    #faili = " ".join(failuSaraksts)
+    return render_template('parbaude.html', faili = testuNosaukumuListe)
 
 
 if __name__ == '__main__':
