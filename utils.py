@@ -1,13 +1,13 @@
 import os
 import csv
 
-# pieļaujamais maksimālais testa jomas simbolu nosaukuma garums
+# pieļaujamais min/max testa jomas simbolu nosaukuma garums
 maxJoma=50
 minJoma=5
-# pieļaujamais maksimālais testa nosaukuma simbolu daudzums
+# pieļaujamais min/max testa nosaukuma simbolu daudzums
 maxTests=150
 minTests=3
-# pieļaujamais maksimālais jautājumu garuma simbolu daudzums
+# pieļaujamais min/max testa jautājumu garuma simbolu daudzums
 maxJautGarums=150
 minJautGarums=3
 
@@ -24,6 +24,7 @@ def datnesStruktuurasParbaude(ielades_vieta,fails):
             return (False,"Nepareiza faila struktūra! Faila 1. rindā jābūt tikai jomas nosaukumam!")
         
         testa_nosaukums = next(lasitajs)
+        # paarbaudiit vai ir 4 atbildes, vai not NaN
         if len(testa_nosaukums["jautajums"]) < minTests or len(testa_nosaukums["jautajums"]) > maxTests: 
             return (False,"Testa nosaukums ir neatbilstošā garumā!")
         if testa_nosaukums["atbilde1"] or testa_nosaukums["atbilde2"] or testa_nosaukums["atbilde3"]or testa_nosaukums["atbilde4"]: 
