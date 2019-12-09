@@ -7,13 +7,9 @@
   <p>Izvēlies testu un spied Sākt!
   <form>
     <select class="izvelne" id="testaIzvele" name="testuIzvele">
-      <option value="0">Tests par datorgrafiku</option>
-      <option value="1">1. tests par HTML pamatiem</option>
-      <option value="2">2. tests par HTML pamatiem</option>
-      <option value="3">Tests par datu drošību</option>
-      <option value="4">Tests par ģeogrāfiju</option>
-      <option value="5">Tests par mērvienībām</option>
-      <option value="6">Tests par Lāčplēša dienu</option>
+        {% for row in faili %}
+        <option value={{ row[0] }}>{{ row[1] }}</option>
+        {% endfor %}
     </select>
   </form></p>
   <button class="podzina" onClick="atteloHTML()">

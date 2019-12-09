@@ -19,6 +19,10 @@ def datnesStruktuurasParbaude(ielades_vieta,fails):
         testa_joma = next(lasitajs)   
         if len(testa_joma["jautajums"]) < minJoma or len(testa_joma["jautajums"]) > maxJoma: 
             return (False,"Testa jomas nosaukums ir neatbilstošā garumā!")
+       
+        if testa_joma["jautajums"][0]!="#":
+            return (False,"Testa faila pirmajai rindai jāsākas ar # !")    
+
         #print (testa_joma, testa_joma["atbilde1"])
         if testa_joma["atbilde1"] or testa_joma["atbilde2"] or testa_joma["atbilde3"] or testa_joma["atbilde4"]:            
             return (False,"Nepareiza faila struktūra! Faila 1. rindā jābūt tikai jomas nosaukumam!")
@@ -27,6 +31,9 @@ def datnesStruktuurasParbaude(ielades_vieta,fails):
         # paarbaudiit vai ir 4 atbildes, vai not NaN
         if len(testa_nosaukums["jautajums"]) < minTests or len(testa_nosaukums["jautajums"]) > maxTests: 
             return (False,"Testa nosaukums ir neatbilstošā garumā!")
+        if testa_nosaukums["jautajums"][0]!="#":
+            return (False,"Testa faila otrajai rindai jāsākas ar # !") 
+
         if testa_nosaukums["atbilde1"] or testa_nosaukums["atbilde2"] or testa_nosaukums["atbilde3"]or testa_nosaukums["atbilde4"]: 
             return (False,"Nepareiza faila struktūra! Faila 2. rindā jābūt tikai testa nosaukumam!")
         rindas_skaititajs=3
@@ -47,5 +54,5 @@ def testuSaraksts(ielades_vieta):
     for datne in failuSaraksts:
         with open(os.path.join(ielades_vieta, datne), "r", encoding='utf-8') as f: 
             dati = f.readlines()
-            testuListe.append(dati[1])
+            testuListe.append([datne, dati[1].strip("#")])
     return testuListe 

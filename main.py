@@ -16,7 +16,7 @@ dat = datetime.datetime.now()
 datums = dat.strftime("%Y%m%d")
 
 IELADES_VIETA = "uploads"
-DATNU_VIETA = "testi"
+DATNU_VIETA = "static/dati"
 
 class DatnesForma(FlaskForm):
     datne = FileField(validators=[FileRequired()])
@@ -68,7 +68,9 @@ def par():
 
 @app.route('/macibas')
 def macibas():
-    return render_template('macibas.html')
+    testuNosaukumuListe = utils.testuSaraksts(DATNU_VIETA)
+    #faili = " ".join(failuSaraksts)
+    return render_template('macibas.html', faili = testuNosaukumuListe)
 
 
 @app.route('/parbaude')

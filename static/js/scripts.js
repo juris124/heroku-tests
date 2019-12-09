@@ -1,4 +1,4 @@
-var testuDati =
+/* var testuDati =
 '{"tests":[' +
 '{"nosaukums":"Tests par grafiku","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/grafika1.csv" },' +
 '{"nosaukums":"1. tests par HTML","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/html1.csv" },' +
@@ -7,6 +7,8 @@ var testuDati =
 '{"nosaukums":"Ģeogrāfijas zināšanu tests","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/geografija1.csv" },' +
 '{"nosaukums":"Tests par mērvienībām","failaURL":"https://in24.github.io/zinasanuParbaudesTests/dati/mervienibas1.csv" },' +
 '{"nosaukums":"Tests par Lāčplēša dienu","failaURL":"https://startit-juris.herokuapp.com/static/dati/lachplesha.csv" }]}';
+*/
+
 var testaJautajumi;
 var preloader;
 var jautajums = 0;
@@ -45,7 +47,7 @@ function beidzSpeli() {
       ". " +
       testaJautajumi[i].jautajums +
       " - " +
-      pareiza[i] +
+      escapeHtml(pareiza[i]) +
       "<br>";
   }
   document.getElementById("rezult").innerHTML =
@@ -118,15 +120,20 @@ function nakamais() {
 }
 
 function testaJautajumiNoCSV(callback) {
-  const testi = JSON.parse(testuDati);
-  const testaNumurs = parseInt(document.getElementById("testaIzvele").value);
-  const url = testi.tests[testaNumurs].failaURL;
+  //const testi = JSON.parse(testuDati);
+  //const testaNumurs = parseInt(document.getElementById("testaIzvele").value);
+  //const url = testi.tests[testaNumurs].failaURL;
   //console.log(url);
   //const url = "https://in24.github.io/zinasanuParbaudesTests/dati/grafika.csv";
+  const ti =  document.getElementById("testaIzvele").value;
+  //const n = ti.options[ti.selectedIndex].value;
+  const url = './static/dati/' + ti;
   Papa.parse(url, {
+    comments: "#",
     download: true,
     header: true,
-    dynamicTyping: true,
+    dynamicTyping: false,
+    skipEmptyLines: true,
     delimiter: ";",
     complete: function(results) {
       callback(results);
@@ -173,4 +180,13 @@ function radit(s) {
 
 function slept(s) {
   document.getElementById(s).style.display = "none";
+}
+
+function escapeHtml(unsafe) {
+  return unsafe
+       .replace(/&/g, "&amp;")
+       .replace(/</g, "&lt;")
+       .replace(/>/g, "&gt;")
+       .replace(/"/g, "&quot;")
+       .replace(/'/g, "&#039;");
 }
