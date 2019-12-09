@@ -1,0 +1,15 @@
+#Tehnoloģiju joma
+#Tests par datorgrafiku
+jautajums;atbilde1;atbilde2;atbilde3;atbilde4
+Kas ir digitālā attēla izšķirtspēja?;Pikseļu skaits collā;Bitu skaits pikseļa krāsas raksturošanai;Krāsu skaits paletē;Pikseļu skaits pa horizontāli un vertikāli
+Rastrgrafikā attēls tiek veidots...;no atsevišķiem punktiem;no taisnēm un līknēm;tāpat kā vektorgrafikā, tikai kvalitatīvāk;tāpat kā vektorgrafikā, tikai nekvalitatīvāk
+Kāpēc grafiskā lietotne mēdz brīdināt, ka izdrukā krāsa atšķirsies?;Ekrāna un drukas iekārtas krāsu modeļi atšķiras;Drukas iekārtā var nebūt balts papīrs;Kādam parametram norādīta neiespējama vērtība;Vienā no drukas kasetnēm beigusies krāsa
+Kurš raksturlielums nosaka atšķirību starp tumšajiem un gaišajiem toņiem?;Kontrasts;Caurspīdīgums;Piesātinājums;Spilgtums
+Ko krāssātspozmes modelī (HSB) nosaka raksturlielums "piesātinājums"?;Nokrāsas procentuālo daudzumu krāsā;Baltās krāsas procentuālo daudzumu krāsā;Bitu skaitu krāsas kodēšanai;Krāsas caurspīdīgumu procentos
+Kas ir krāsu palete?;Tabula, kurā katrai krāsai ir noteikts skaitlisks lielums;Pikselim piekārtoto bitu skaits;Tabula, kurā izvēlēties krāsu modeli;Attēla kvalitātes novērtējums
+Kas ir pikselis?;Rastrgrafikas attēla vismazākais elements;Digitālā attēla izšķirtspējas mērvienība;Krāsu attēlošanas metode;Virzīts līnijas segments vektorgrafikā
+Kas ir krāsu dziļums?;Bitu skaits pikseļa krāsas raksturošanai;Procentuālais baltās un/vai melnās krāsas daudzums;Krāsas daudzums procentos;Paletes krāsu spektrs
+Kurš krāsu raksturlielums tika mainīts Brīvo Suņu logo, ja caur tā ķermeni daļēji redzama fona krāsa?;Caurspīdīgums;Spilgtums;Krāsu balanss;Krāssātspozme
+Kura lietotne ir vispiemērotākā atsevišķu attēla punktu krāsas rediģēšanai?;GIMP;Microsoft Word;Inkscape;Microsoft PowerPoint
+Ja attēlā maina figūras proporcijas, bet tās kvalitāte nemainās, tad tas ir...;vektorgrafikas attēls;rastrgrafikas attēls;liela krāsu dziļuma attēls;lielas izšķirtspējas attēls
+Vektorgrafikā attēlu veido...;taisnes un līknes;pikseļi;izšķirtspēja;mazāks krāsu dziļums

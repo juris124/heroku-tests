@@ -4,10 +4,9 @@
   <hr width="40%" />
 </div>
 
-<ul>
+<select>
   {% for row in faili %}
-    <li>{{ row }}</li>
+  <option value={{ row[0] }}>{{ row[1] }}</option>
   {% endfor %}
-  </ul>
-
+</select>
   {% endblock %}
