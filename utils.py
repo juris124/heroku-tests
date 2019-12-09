@@ -24,6 +24,7 @@ def datnesStruktuurasParbaude(ielades_vieta,fails):
             return (False,"Nepareiza faila struktūra! Faila 1. rindā jābūt tikai jomas nosaukumam!")
         
         testa_nosaukums = next(lasitajs)
+        # paarbaudiit vai ir 4 atbildes, vai not NaN
         if len(testa_nosaukums["jautajums"]) < minTests or len(testa_nosaukums["jautajums"]) > maxTests: 
             return (False,"Testa nosaukums ir neatbilstošā garumā!")
         if testa_nosaukums["atbilde1"] or testa_nosaukums["atbilde2"] or testa_nosaukums["atbilde3"]or testa_nosaukums["atbilde4"]: 
