@@ -1,5 +1,6 @@
 import os
 import csv
+import math
 
 # pieļaujamais min/max testa jomas simbolu nosaukuma garums
 maxJoma=50
@@ -34,15 +35,20 @@ def datnesStruktuurasParbaude(ielades_vieta,fails):
         if testa_nosaukums["jautajums"][0]!="#":
             return (False,"Testa faila otrajai rindai jāsākas ar # !") 
 
-        if testa_nosaukums["atbilde1"] or testa_nosaukums["atbilde2"] or testa_nosaukums["atbilde3"]or testa_nosaukums["atbilde4"]: 
+        if testa_nosaukums["atbilde1"] or testa_nosaukums["atbilde2"] or testa_nosaukums["atbilde3"] or testa_nosaukums["atbilde4"]: 
             return (False,"Nepareiza faila struktūra! Faila 2. rindā jābūt tikai testa nosaukumam!")
         rindas_skaititajs=3
         for r in lasitajs:
             #print(rindas_skaititajs)
             if len(r["jautajums"]) < minJautGarums or len(r["jautajums"]) > maxJautGarums: 
                 return (False,f"Jautājuma garums ir neatbilstošs! Problēma rindā nr. {rindas_skaititajs}, jautājums - {r['jautajums']}")
+            
+            if not r["atbilde1"] or not r["atbilde2"] or not r["atbilde3"] or not r["atbilde4"]: 
+                return (False,f"Atbilžu versijām ir jābut tieši 4! Problēma rindā nr. {rindas_skaititajs}, jautājums - {r['jautajums']}")
+            
             if len(r["atbilde1"]) == 0 or len(r["atbilde2"]) == 0 or len(r["atbilde3"]) == 0 or len(r["atbilde4"]) == 0: 
                 return (False,f"Nekorektas atbilžu versijas Problēma rindā nr. {rindas_skaititajs}, jautājums - {r['jautajums']}")
+            
             rindas_skaititajs+=1
             #pass
     return (True, "Viss ir OK, testa datne pārbaudīta un augšupielādēta testu mapē.")
