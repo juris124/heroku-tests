@@ -1,0 +1,13 @@
+#Tehnoloģiju joma
+#Tests par HTML (2)
+jautajums;atbilde1;atbilde2;atbilde3;atbilde4
+Kurš HTML kods nosaka teksta ievietošanu divās rindās?; <br>; <tr> </tr>; <html> </html>; <pre> </pre>
+Starp kuriem tagiem tiek izveidots HTML dokumenta nosaukums, kas tiek atspoguļots pārlūkprogrammas loga galvenē?; <title> </title>; <font> </font>; <html> </html>; <pre> </pre>
+Kurš taga <body> parametrs iestāda apmeklētās hipersaites krāsu?; vlink; alink; link; bgcolor
+Taga <u></u> nozīme ir?; pasvītrots teksts; slīpraksts; pārsvītrots teksts; virsraksta teksts
+Taga <i></i> nozīme ir?; slīpraksts; pasvītrots teksts; pārsvītrots teksts; virsraksta teksts
+Taga <sub></sub> nozīme ir?; apakšraksts; augšraksts; palielina fontu izmēru par 1; samazina fontu izmēru par 1
+Taga <small></small> nozīme ir?; samazina fontu izmēru par 1; apakšraksts; augšraksts; palielina fontu izmēru par 1
+Kurš tags nosaka saraksta katru elementu?; <li>; <br>; <ol>; <lh>
+Kurš tags pievieno virsrakstu sarakstam?; <lh>; <br>; <ol>; <li>
+Taga <font> parametrs color nosaka?; fonta krāsu; tabulas fona krāsu; virsraksta izmēru; rindu tabulā
