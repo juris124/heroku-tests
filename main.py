@@ -46,6 +46,8 @@ users = {"test": User("test", "qwerty", "Galvenais testetajs"),
          "gundega": User("gundega", "asdf", "Princese Gundega"),
          "maiga": User("maiga", "parole", "Maiga no Ķekavas"),
          "juris": User("juris", "123", "Juris"),
+         "laila": User("laila", "Zanda", "Laila"),
+         "natalija": User("natalija", "Zanda", "Natālija"),
          "indra": User("indra", "pk30", "Indra")
          }
 
