@@ -17,9 +17,9 @@ Pārnest programmu uz Heroku
 
 ---?color=linear-gradient(90deg, white 50%, black 50%)
 
-@snap[west span-30 text-center]
+@snap[west span-30 text-center text-smallcaps]
 
-## Brīvais Suns
+### Brīvais Suns
 
 @img[](static/bildes/brivais_suns.png)
 
@@ -33,7 +33,7 @@ Pārnest programmu uz Heroku
 
 ---
 
-@snap[north-east]
+@snap[north-east text-smallcaps]
 #### Piemērs Heroku kodam
 @snapend
 
@@ -57,7 +57,7 @@ Note:
 
 +++?code=Procfile&lang=python
 
-@snap[north-east]
+@snap[north-east text-smallcaps]
 #### Piemērs kodam no faila
 @snapend
 
