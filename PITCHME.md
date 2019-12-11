@@ -75,6 +75,6 @@ Note:
 
 ### Brīvais suns
 
-@fa[dog fa-5x] @fa[dog fa-5x fa-flip-horizontal]
+@fa[dog fa-5x brivais-suns] @fa[bone fa-2x fa-spin] @fa[dog fa-5x brivais-suns fa-flip-horizontal]
 
 ---
