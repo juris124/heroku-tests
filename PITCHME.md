@@ -73,10 +73,8 @@ Note:
 
 ---
 
-### Ikonu tests
+### Brīvais suns
 
-@fa[code-branch]
-
-@fa[dog]
+@fa[dog fa-5x] @fa[dog fa-5x fa-flip-horizontal]
 
 ---
