@@ -10,10 +10,12 @@ Pārnest programmu uz Heroku
 
 ## Rezultāti
 
+@ul
 - Izveidojām Heroku kontu
 - Savienojām Heroku kontu ar GitHub
 - Pārnesām iepriekšējo projektu
 - Pievienojām jaunu funkcionalitāti
+@ulend
 
 ---?color=linear-gradient(90deg, white 50%, black 50%)
 
