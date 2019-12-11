@@ -72,3 +72,11 @@ Note:
 @snapend
 
 ---
+
+### Ikonu tests
+
+@fa[solid-smile-wink]
+
+@fa[fa-dog]
+
+---
