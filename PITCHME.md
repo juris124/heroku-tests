@@ -17,7 +17,7 @@ Pārnest programmu uz Heroku
 - Pievienojām jaunu funkcionalitāti
 @ulend
 
----?color=linear-gradient(90deg, white 50%, black 50%)
+---?color=linear-gradient(90deg, white 50%, #a15721 50%)
 
 @snap[west span-30 text-center text-smallcaps]
 
