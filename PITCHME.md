@@ -75,8 +75,8 @@ Note:
 
 ### Ikonu tests
 
-@fa[solid-smile-wink]
+@fa[code-branch]
 
-@fa[fa-dog]
+@fa[dog]
 
 ---
