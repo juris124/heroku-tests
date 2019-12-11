@@ -153,3 +153,15 @@ a {
 .kkaste a{
   color: #523A34
 }
+.button{
+  background-color: #decdbf;
+  border: none;
+  padding: 10px 25px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  font-style:bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 2px solid #decdbf;
+}
