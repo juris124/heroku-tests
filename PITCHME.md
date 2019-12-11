@@ -11,23 +11,27 @@ Pārnest programmu uz Heroku
 ## Rezultāti
 
 @ul
+
 - Izveidojām Heroku kontu
 - Savienojām Heroku kontu ar GitHub
 - Pārnesām iepriekšējo projektu
 - Pievienojām jaunu funkcionalitāti
+
 @ulend
 
 ---?color=linear-gradient(90deg, white 50%, #a15721 50%)
 
 @snap[west span-30 text-center text-smallcaps]
 
-### Brīvais Suns
+### Brīvais
 
 @img[](static/bildes/brivais_suns.png)
 
 @snapend
 
 @snap[east span-50 text-center]
+
+### Suns
 
 @img[](static/bildes/brivais_suns.png)
 
@@ -36,7 +40,9 @@ Pārnest programmu uz Heroku
 ---
 
 @snap[north-east text-smallcaps]
+
 #### Piemērs Heroku kodam
+
 @snapend
 
 ```python
@@ -60,7 +66,9 @@ Note:
 +++?code=Procfile&lang=python
 
 @snap[north-east text-smallcaps]
+
 #### Piemērs kodam no faila
+
 @snapend
 
 ---
