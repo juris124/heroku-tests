@@ -40,4 +40,4 @@ theme-controls   : [ "#C0C0C0" ]
 theme-code       : [ "Fira Code" ]
 theme-margins    : [ "0", "15px" ]
 
-highlight        : tomorrow
+highlight        : solarized-light
