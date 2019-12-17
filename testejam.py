@@ -1,7 +1,7 @@
 import os
 from github import Github
-​
-def commitFile(fname):
+
+​def commitFile(fname):
     #gh_key = os.environ['GH_KEY']
     # using an access token
     # Create token - https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
