@@ -133,7 +133,9 @@ def upload():
             if result:                
                 flash(message)
                 #os.rename(os.path.join(IELADES_VIETA, failaNosaukums), os.path.join(DATNU_VIETA, failaNosaukums))                
-                shutil.move(os.path.join(IELADES_VIETA, failaNosaukums), os.path.join(DATNU_VIETA, str(datums) + '_' + failaNosaukums))       
+                celjsh = os.path.join(DATNU_VIETA, str(datums) + '_' + failaNosaukums)
+                shutil.move(os.path.join(IELADES_VIETA, failaNosaukums), celjsh)
+                utils.commitFile(celjsh)  
             else:
                 flash(message)
                 os.remove(os.path.join(IELADES_VIETA, failaNosaukums))        

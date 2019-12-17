@@ -2,6 +2,8 @@ import os
 import csv
 import math
 
+from github import Github
+
 # pieļaujamais min/max testa jomas simbolu nosaukuma garums
 maxJoma=50
 minJoma=5
@@ -62,3 +64,29 @@ def testuSaraksts(ielades_vieta):
             dati = f.readlines()
             testuListe.append([datne, dati[1].strip("#")])
     return testuListe 
+
+def commitFile(fname):
+    gh_key = os.environ.get('GH_KEY')
+    if not gh_key:
+        print("Nav atrasts GH_KEY")
+        return
+    # using an access token
+    # Create token - https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+    g = Github(gh_key)
+    repo=g.get_repo("juris124/heroku-tests")
+    with open(fname, "r", encoding='utf-8') as f:
+        dircont = repo.get_dir_contents("/static/dati")
+        for fn in dircont:
+            print(fn.path)
+            if fn.path == fname:
+                contents = repo.get_contents(fname)
+                repo.update_file(contents.path, "Fails ir mainīts", f.read(), contents.sha)
+                break
+        else:
+            c = repo.create_file(fname, "Pievienots jauns fails", f.read())
+            print(c)
+        
+    print(repo.name)
+    
+        # Docs https://pygithub.readthedocs.io/en/latest/examples/Repository.html#create-a-new-file-in-the-repository
+        # Reference https://pygithub.readthedocs.io/en/latest/github_objects/Repository.html#github.Repository.Repository.create_file
