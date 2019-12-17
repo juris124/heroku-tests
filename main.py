@@ -12,8 +12,6 @@ import utils
 import shutil
 import datetime
 
-from github import Github
-
 dat = datetime.datetime.now()
 datums = dat.strftime("%Y%m%d")
 
