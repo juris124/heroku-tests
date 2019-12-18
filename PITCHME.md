@@ -1,29 +1,87 @@
-# Oktobra mājasdarbs
+## Brīvo Suņu mājasdarbs
 
 ---
 
 ## Mērķis
 
-Pārnest programmu uz Heroku
+Pārnest testu programmu uz Heroku
+
 
 +++
 
-## Rezultāti
+## Ko darījām?
+
++++
+
+### Izveidojām Heroku kontu un savienojām ar GitHub
+
++++
+
+### Izveidota lapas arhitektūra
+
++++
+
+### Pārnesām un pielāgojām iepriekšējo projektu
+
++++
+
+### Pievienojām jaunu funkcionalitāti
+
+---
+
+## Jaunā funkcionalitāte
 
 @ul
 
-- Izveidojām Heroku kontu
-- Savienojām Heroku kontu ar GitHub
-- Pārnesām iepriekšējo projektu
-- Pievienojām jaunu funkcionalitāti
+- Autorizācijas iespējas
+- Testu augšupielāde un sinhronizācija
+- Faila struktūras pārbaude
+- Testa izvēlne tiek automātiski ģenerēta
 
 @ulend
 
----?color=linear-gradient(90deg, white 50%, #a15721 50%)
+---
+
+## Rezultāti
+
+Bildes, kā izskatās lapa
+Saite uz lapu
+
+---
+
+## Vienkāršais
+
+@ul
+
+- Uzaicinājums uz sapulci
+- HTML + CSS
+- Flask veidnes
+- Heroku uzstādīšana
+
+@ulend
+
++++
+
+## IzAicinājumi
+
+@ul
+
+- Projekta arhitektūras apjēgšana
+- Heroku uzstādīšanas knifi
+- Python programmēšanas laikietilpība
+- Servera puses programmēšanas neikdienišķums
+
+@ulend
+
+---
+
+## Sadarbiba grupā
+
++++?color=linear-gradient(90deg, white 50%, #a15721 50%)
 
 @snap[west span-30 text-center text-smallcaps]
 
-### Brīvais
+### Brīvais Suns
 
 @img[](static/bildes/brivais_suns.png)
 
@@ -31,7 +89,7 @@ Pārnest programmu uz Heroku
 
 @snap[east span-50 text-center]
 
-### Suns
+### Pavlova Suns
 
 @img[](static/bildes/brivais_suns.png)
 
@@ -39,42 +97,32 @@ Pārnest programmu uz Heroku
 
 ---
 
-@snap[north-east text-smallcaps]
+## Kas mums izdevās?
 
-#### Piemērs Heroku kodam
+@ul
 
-@snapend
+- Grupas iktrešdienas tikšanās
+- Plānošana un pienākumu sadale
+- Mentores Gundegas padomu kotletes
+- Katra dalībnieka iesaiste
+- Dalīšanās pedagoga darba kompetencēs
 
-```python
-if __name__ == '__main__':
-    app.run(threaded=True, port=5000)
-    # Komentārs
-    # Cits komentārs
-```
+@ulend
 
-@snap[south span-100 text-14]
-@[1](Ja funkcija izsaukta kā __main__)
-@[2](Palaiž aplikāciju)
-@[3-4](Komentāri piemēram)
-@snapend
++++
 
-Note:
+## Grupas izAicinājumi
 
-- Šo nevajadzētu redzēt prezentācijā
-- **Bold** un *italic*
+@ul
 
-+++?code=Procfile&lang=python
+- Visa plānotā paveikšana
+- Laika atrašana
+- Noslēpt kotleti no suņa Troja
 
-@snap[north-east text-smallcaps]
-
-#### Piemērs kodam no faila
-
-@snapend
+@ulend
 
 ---
 
-### Brīvais suns
+### Brīvie SPECsuņi
 
 @fa[dog fa-5x brivais-suns] @fa[bone fa-2x fa-spin] @fa[dog fa-5x brivais-suns fa-flip-horizontal]
-
----
