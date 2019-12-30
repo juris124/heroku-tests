@@ -167,6 +167,8 @@ a {
 }
 .box{
   align-items:center;
+  box-sizing: content-box;
+width: 100%;
 }
 .div{
   width: 160px;
