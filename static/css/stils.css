@@ -166,9 +166,6 @@ a {
   border: 2px solid #decdbf;
 }
 .box{
-  align-items: center;
-}
-.box{
   align-items:center;
 }
 .div{
@@ -177,4 +174,7 @@ a {
   padding: 20px;
   border: 8px solid red;
   background: yellow;
+}
+.content-box { 
+  box-sizing: content-box; 
 }
