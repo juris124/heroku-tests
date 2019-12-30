@@ -177,6 +177,6 @@ width: 100%;
   border: 8px solid red;
   background: yellow;
 }
-.content-box { 
-  box-sizing: content-box; 
+.input class{
+  font-size: 14px;
 }
