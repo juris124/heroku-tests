@@ -124,7 +124,7 @@ Pārnest testu programmu uz Heroku
 
 +++
 
-@img[](static/bildes/zobainais_suns.png)
+@img[](static/bildes/zobainais_suns.jpg)
 
 ---
 
