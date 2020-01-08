@@ -46,7 +46,11 @@ Pārnest testu programmu uz Heroku
 
 +++
 
-@img[](static/bildes/breivie_suni.png)
+@img[](static/bildes/bs_11.png)
+
++++
+
+@img[](static/bildes/brievie_suni.png)
 
 +++
 
@@ -81,23 +85,12 @@ Pārnest testu programmu uz Heroku
 
 +++
 
-
-@img[](static/bildes/bs_07.png)
+@img[](static/bildes/bs_10.png)
 
 +++
 
 
 @img[](static/bildes/bs_08.png)
-
-+++
-
-
-@img[](static/bildes/bs_09.png)
-
-+++
-
-
-@img[](static/bildes/bs_10.png)
 
 
 ---
@@ -154,7 +147,7 @@ Pārnest testu programmu uz Heroku
 
 @ul
 
-- Grupas iktrešdienas tikšanās
+- Grupas ik trešdienas tikšanās
 - Plānošana un pienākumu sadale
 - Mentores Gundegas padomu kotletes
 - Katra dalībnieka iesaiste
