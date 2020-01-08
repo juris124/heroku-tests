@@ -44,8 +44,61 @@ Pārnest testu programmu uz Heroku
 
 ## Rezultāti
 
-Bildes, kā izskatās lapa
-Saite uz lapu
++++
+
+@img[](static/bildes/breivie_suni.png)
+
++++
+
+@img[](static/bildes/bs_01.png)
+
++++
+
+
+@img[](static/bildes/bs_02.png)
+
++++
+
+
+@img[](static/bildes/bs_03.png)
+
++++
+
+
+
+@img[](static/bildes/bs_04.png)
+
++++
+
+
+@img[](static/bildes/bs_05.png)
+
++++
+
+
+
+@img[](static/bildes/bs_06.png)
+
++++
+
+
+@img[](static/bildes/bs_07.png)
+
++++
+
+
+@img[](static/bildes/bs_08.png)
+
++++
+
+
+@img[](static/bildes/bs_09.png)
+
++++
+
+
+@img[](static/bildes/bs_10.png)
+
 
 ---
 
