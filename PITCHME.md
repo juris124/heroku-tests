@@ -176,6 +176,7 @@ Pārnest testu programmu uz Heroku
 @ulend
 
 ---
+
 @img[](static/bildes/bs_14.png)
 
 
@@ -184,3 +185,5 @@ Pārnest testu programmu uz Heroku
 ### Brīvie SPECsuņi
 
 @fa[dog fa-5x brivais-suns] @fa[bone fa-2x fa-spin] @fa[dog fa-5x brivais-suns fa-flip-horizontal]
+
+#### https://ej.uz/BrivieSuni
