@@ -165,6 +165,10 @@ Pārnest testu programmu uz Heroku
 
 +++
 
+@img[](static/bildes/bs_15.png)
+
++++
+
 ## Grupas izAicinājumi
 
 @ul
