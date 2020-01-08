@@ -46,7 +46,15 @@ Pārnest testu programmu uz Heroku
 
 +++
 
+@img[](static/bildes/bs_13.png)
+
++++
+
 @img[](static/bildes/bs_11.png)
+
++++
+
+@img[](static/bildes/bs_12.png)
 
 +++
 
