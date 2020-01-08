@@ -176,6 +176,10 @@ Pārnest testu programmu uz Heroku
 @ulend
 
 ---
+@img[](static/bildes/bs_14.png)
+
+
+---
 
 ### Brīvie SPECsuņi
 
