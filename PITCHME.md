@@ -66,28 +66,21 @@ Pārnest testu programmu uz Heroku
 
 +++
 
-
 @img[](static/bildes/bs_02.png)
 
 +++
-
 
 @img[](static/bildes/bs_03.png)
 
 +++
 
-
-
 @img[](static/bildes/bs_04.png)
 
 +++
 
-
 @img[](static/bildes/bs_05.png)
 
 +++
-
-
 
 @img[](static/bildes/bs_06.png)
 
@@ -97,9 +90,7 @@ Pārnest testu programmu uz Heroku
 
 +++
 
-
 @img[](static/bildes/bs_08.png)
-
 
 ---
 
@@ -116,6 +107,10 @@ Pārnest testu programmu uz Heroku
 
 +++
 
+@img[](static/bildes/laiskais_suns.png)
+
++++
+
 ## IzAicinājumi
 
 @ul
@@ -127,9 +122,13 @@ Pārnest testu programmu uz Heroku
 
 @ulend
 
++++
+
+@img[](static/bildes/zobainais_suns.png)
+
 ---
 
-## Sadarbiba grupā
+## Sadarbība grupā
 
 +++?color=linear-gradient(90deg, white 50%, #a15721 50%)
 
